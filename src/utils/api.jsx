@@ -1,6 +1,6 @@
 var Fetch = require('whatwg-fetch');
 var rootURL = 'https://api.imgur.com/3/';
-var apiKey = '';
+var apiKey = '94ee87c3074162a';
 
 var api = window.api = ({
   //ajax request to imgur, using fetch library
