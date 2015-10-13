@@ -1,7 +1,8 @@
 var Reflux = require('reflux');
 var actions = Reflux.createActions([
   'getTopics',
-  'getImages'
+  'getImages',
+  'getImage'
 ]);
 
 module.exports = actions;

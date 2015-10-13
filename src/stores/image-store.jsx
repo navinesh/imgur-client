@@ -14,8 +14,28 @@ var ImageStore = Reflux.createStore({
         this.triggerChange();
       }.bind(this));
   },
+  getImage: function(id){
+    Api.get('gallery/image/' + id)
+      .then(function(json){
+        if(this.images){
+          this.images.push(json.data);
+        }else{
+          this.images = [json.data];
+        }
+        this.triggerChange();
+      }.bind(this));
+  },
   triggerChange: function(){
     this.trigger('change', this.images);
+  },
+  find: function(id){
+    var image = _.findWhere(this.images, {id: id});
+    if(image){
+      return image
+    }else{
+      this.getImage(id);
+      return null
+    }
   }
 });
 
